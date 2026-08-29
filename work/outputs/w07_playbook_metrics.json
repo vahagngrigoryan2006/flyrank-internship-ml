@@ -1,0 +1,100 @@
+{
+  "notebook": "w07_action_playbook.ipynb",
+  "warehouse_build": "flyrank_pseudonymized_warehouse_release_v20260703",
+  "training_frame": {
+    "as_of": "2026-05-31",
+    "decision_moment": "2026-05-01",
+    "n_rows": 18918,
+    "n_clients": 27,
+    "base_rate": 0.5433449624696056
+  },
+  "sealed_june_frame": {
+    "as_of": "2026-07-01",
+    "decision_moment": "2026-06-01",
+    "n_rows": 55904,
+    "n_clients": 42,
+    "base_rate": 0.6707212364052662,
+    "read": "once"
+  },
+  "queue": {
+    "ordered_by": "rule score (impressions x ctr_gap)",
+    "reason_codes": [
+      "rule_reason",
+      "lr_reason",
+      "tree_reason",
+      "tree_path",
+      "agreement"
+    ],
+    "review_budget": 50,
+    "n_rule_flagged": 1549,
+    "n_eligible": 7298,
+    "agreement_mix": {
+      "QUIET_RISK_MODEL_ONLY": 37923,
+      "NO_FLAG": 16432,
+      "RULE_AND_MODEL_AGREE": 1165,
+      "RULE_ONLY": 384
+    }
+  },
+  "walk_forward_precision_at_k": {
+    "rule (ships the queue)": {
+      "10": 0.8,
+      "25": 0.88,
+      "50": 0.88,
+      "75": 0.8933333333333333,
+      "100": 0.91,
+      "200": 0.88
+    },
+    "logistic_regression": {
+      "10": 0.4,
+      "25": 0.32,
+      "50": 0.38,
+      "75": 0.4,
+      "100": 0.41,
+      "200": 0.475
+    },
+    "decision_tree": {
+      "10": 0.6,
+      "25": 0.6,
+      "50": 0.58,
+      "75": 0.6533333333333333,
+      "100": 0.66,
+      "200": 0.675
+    }
+  },
+  "june_classification_metrics": {
+    "rule": {
+      "precision": 0.81,
+      "recall": 0.033,
+      "f1": 0.064
+    },
+    "logistic_regression": {
+      "precision": 0.638,
+      "recall": 0.523,
+      "f1": 0.575
+    },
+    "decision_tree": {
+      "precision": 0.706,
+      "recall": 0.547,
+      "f1": 0.617
+    }
+  },
+  "monitoring": {
+    "base_rate_shift_points": 12.737627393566054,
+    "base_rate_alarm_threshold_points": 10,
+    "base_rate_alarm_would_fire": true,
+    "psi_threshold": 0.25,
+    "n_features_over_psi_threshold": 4,
+    "top_psi": {
+      "days_since_last_update_at_decision": 2.213945659665991,
+      "keyword_age_days_at_decision": 1.9726810845403682,
+      "content_age_days_at_decision": 0.871461101177359,
+      "prev_30_sessions": 0.290255524217864,
+      "prev_30_avg_position": 0.22117664939272025
+    },
+    "status": "proposed policy, not an implemented system"
+  },
+  "claims": {
+    "causal": "none -- no controlled comparison exists",
+    "scope": "one walk-forward month; ordering is decision-support, not a recovery claim"
+  }
+}
